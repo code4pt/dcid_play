@@ -20,7 +20,7 @@ public class UserTest extends WithApplication {
 		start(fakeApplication(inMemoryDatabase()));
 	}
 
-	// insertion and retrieval of user
+	// creation and retrieval of user
 	@Test
 	public void createAndRetrieveUser() {
 		new User("bob@gmail.com", "Bob", "secret").save();
