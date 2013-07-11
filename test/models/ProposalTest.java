@@ -20,22 +20,7 @@ public class ProposalTest extends WithApplication {
 		start(fakeApplication(inMemoryDatabase()));
 	}
 
-	// creation and retrieval of a proposal without requiring a User class
-	@Test
-	public void createAndRetrieveProposalMock() {
-		new Proposal("Do something", "A problem.", "We solve it.", "We get happy.", null).save();
-		new Proposal("Do something awesome", "Another problem.", "We solve it.", "We get happy.", null).save();
-		
-		Proposal firstProp = Proposal.find.where().eq("title", "Do something").findUnique();
-		Proposal secondProp = Proposal.find.where().eq("title", "Do something awesome").findUnique();
-		
-		assertNotNull(firstProp);						// test retrieval
-		assertEquals("Do something", firstProp.title);	// test correct creation and storage
-		assertEquals("1", firstProp.id.toString());		// test automatic id
-		assertEquals("2", secondProp.id.toString());	// test sequentiality
-	}
-	
-	// creation and retrieval of a proposal without requiring User and Tag
+	// creation and retrieval of a proposal
 	@Test
 	public void createAndRetrieveProposal() {
 		new User("bob@gmail.com", "Bob", "secret").save();
@@ -43,8 +28,6 @@ public class ProposalTest extends WithApplication {
 		
 		assertNotNull(prop);							// test retrieval
 		assertEquals("Build a new park", prop.title);	// test correct creation and storage
-		System.out.println("proposer:"+ prop.proposer);
-		System.out.println("proposer.name:" + prop.proposer.name);
 		assertEquals("Bob", prop.proposer.name);		// test correct storage of User
 	}
 	

@@ -26,26 +26,42 @@ public class Proposal extends Model {
 	@OneToOne
 	public User proposer;
 	
-	public Proposal(String title, String problem, String solution, String benefits, User proposer) {
+	/**
+	 * Finder
+	 */
+	public static Model.Finder<Long, Proposal> find = new Model.Finder(
+			Long.class, Proposal.class);	
+	
+	/**
+	 * Constructor (init)
+	 */
+	private Proposal(String title, String problem, String solution, String benefits) {
 		this.title = title;
 		this.problem = problem;
 		this.solution = solution;
 		this.benefits = benefits;
 		this.timestamp = new Date();
 		this.views = this.upvotes = this.downvotes = 0;
-		this.proposer = proposer;
+		this.proposer = null;
 	}
-
-	public static Model.Finder<Long, Proposal> find = new Model.Finder(
-			Long.class, Proposal.class);	
 	
+	/**
+	 * Creates a new Proposal (using a private constructor), initializes all
+	 * fields, saves the proposal, and returns it.
+	 * @param title
+	 * @param problem
+	 * @param solution
+	 * @param benefits
+	 * @param userId Identifier of the proposer
+	 * @return The new proposal created
+	 */
 	public static Proposal createAndSave(String title, String problem, String solution, String benefits, String userId) {
-		User proposer = User.find.ref(userId);
-		Proposal p = new Proposal(title, problem, solution, benefits, proposer);
+		Proposal p = new Proposal(title, problem, solution, benefits);
+		//p.proposer = User.find.ref(userId);
+		p.proposer = User.find.where().eq("email", userId).findUnique();
 		p.save();
 		return p;
 	}
-	
 	
 	/**
 	 * @return Increments the number of upvotes and then returns the total number of downvotes.
