@@ -1,4 +1,11 @@
-This is your new Play 2.1 application
-=====================================
+~ DCID ~
+========
 
-This file will be packaged with your application, when using `play dist`.
+*propose . discuss . decide*
+
+## Release notes
+
+### 0.0.0
+
+- This
+- That
