@@ -18,11 +18,11 @@ public class Proposal extends Model {
 	public String title;
 	public String problem;
 	public String solution;
-	public String benefits;
-	public Date timestamp;	// date and time of creation // TODO investigate joda-time.sourceforge.net
+	public String benefits;	
 	public int views;
 	public int upvotes;
 	public int downvotes;
+	public Date timestamp;	// date and time of creation // TODO investigate joda-time.sourceforge.net
 	@OneToOne
 	public User proposer;
 	

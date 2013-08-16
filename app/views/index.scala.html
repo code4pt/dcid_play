@@ -1,7 +1,22 @@
-@(message: String)
+@(proposals: List[Proposal], users: List[User])
 
-@main("Welcome to Play 2.1") {
+@main("DCID") {
     
-    <h1>@message</h1>
+    <h1>propose . discuss . decide</h1>
+    <p><a href="#">enter</a></p>
+    
+    <h2>Users</h2>
+    <ul>
+        @for(user <- users) {
+            <li>Name: @user.getName() | Email: @user.email</li>
+        }
+    </ul>
+    
+    <h2>Proposals</h2>
+    <ul>
+        @for(prop <- proposals) {
+            <li><strong>@prop.title</strong> (+@prop.upvotes/-@prop.downvotes) <em>by @prop.proposer.getName()</em></li>
+        }
+    </ul>
     
 }
