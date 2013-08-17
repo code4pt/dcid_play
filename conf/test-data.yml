@@ -15,7 +15,8 @@
     email:      someone@example.com
     name:       Someone Somebody
     password:   secret
-    
+
+
 # Proposals
 
 - &prop1 !!models.Proposal
@@ -57,10 +58,3 @@
 
                 
 # Tags
-
-# - !!models.Task
-    # title:      Fix the documentation
-    # done:       false
-    # folder:     Todo
-    # project:    *play2
-    # assignedTo: *bob

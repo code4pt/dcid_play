@@ -24,6 +24,10 @@ public class User extends Model {
 	public String getName() {
 		return name;	// TODO if(!privacy) return name; else return "A citizen"; 
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public static Finder<String, User> find = new Finder<String, User>(
 			String.class, User.class);
