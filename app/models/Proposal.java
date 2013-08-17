@@ -62,7 +62,7 @@ public class Proposal extends Model {
 		p.save();
 		return p;
 	}
-	
+		
 	/**
 	 * @return Increments the number of upvotes and then returns the total number of downvotes.
 	 */
@@ -84,8 +84,8 @@ public class Proposal extends Model {
 		return upvotes - downvotes;
 	}
 	
-	
 	public String toString() {
-        return "Proposal(" + id + ") | title: " + title + " | proposer: " + proposer.email;
+        return "Proposal(id=" + id + ", title=" + title + ", proposer=" + proposer.email + ")";
     }
+	
 }

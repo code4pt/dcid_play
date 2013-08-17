@@ -58,3 +58,16 @@
 
                 
 # Tags
+
+- &tag1 !!models.Tag
+    name: Tecnologia
+    desc: Propostas que incluem a utilização de algum tipo de tecnologia digital.
+    taggedProposals:
+        - *prop1
+        
+- &tag2 !!models.Tag
+    name: Ambiente
+    desc: Propostas que visam melhorar o ambiente e os espaços verdes.
+    taggedProposals:
+        - *prop2
+        - *prop3
