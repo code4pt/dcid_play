@@ -23,6 +23,7 @@
     @for(tag <- tags) {
         <h3>@tag.name</h3>
         <p><em>@tag.desc</em></p>
+        <p>Tagged proposals (@tag.getTaggedProposals().size()):</p>
         <ul>
             @for(prop <- tag.getTaggedProposals()) {
                 <li>@prop.title</li>
@@ -33,7 +34,7 @@
     <h2>Proposals + Tags</h2>
     <ul>
         @for(prop <- proposals) {
-            
+            <li><strong>@prop.title</strong> [@for(tag <- prop.getTags()) {<u>@tag.name</u>&nbsp;}]</li>
         }
     </ul>
     
