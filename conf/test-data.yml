@@ -1,19 +1,19 @@
 ﻿
 # Users
 
-- &alice !!models.User
-    email:      Alice@example.com
-    name:       Alice Wonder
+- &user1 !!models.User
+    email:      user1@example.com
+    name:       user1
     password:   secret
 
-- &bob !!models.User
-    email:      bob@example.com
-    name:       Bob Builder
+- &user2 !!models.User
+    email:      user2@example.com
+    name:       user2
     password:   secret
 
-- &someone !!models.User
-    email:      someone@example.com
-    name:       Someone Somebody
+- &user3 !!models.User
+    email:      user3@example.com
+    name:       user3
     password:   secret
 
 
@@ -21,53 +21,53 @@
 
 - &prop1 !!models.Proposal
     id:         1
-    title:      Adoptar o 'dcid' em todas as Câmaras Municipais
-    problem:    Várias câmaras municipais já começaram a implementar Orçamentos Participativos. Infelizmente, cada câmara gasta tempo e dinheiro público a desenvolver o seu próprio site de votação online (reinventando a roda).
-    solution:   Proponho que todas as Câmaras Municipais com OPs usem o 'dcid' como plataforma de suporte.
-    benefits:   Poupa-se dinheiro público; Criam-se sinergias pois todas as CMs trabalham para mnelhorar a mesma plataforma; Os cidadãos habituam-se a utilizar uma só plataforma; Incentiva-se a participação democrática dos munícipes e cidadãos em geral.
+    title:      Prop1 title
+    problem:    Prop1 problem
+    solution:   Prop1 solution
+    benefits:   Prop1 benefits
     views:      968
     upvotes:    17
     downvotes:  8624
     timestamp:  2010-03-08 14:59:30.252
-    proposer:   *alice
-    
+    proposer:   *user1
+
 - &prop2 !!models.Proposal
     id:         2
-    title:      Diminuir tráfego na Rotunda do Marquês
-    problem:    O trânsito é caótico a quase toda a hora. Os peões têm muita dificuldade em atravessar a estrada, além de que cheira muito a combustível.
-    solution:   Plantavam-se muitas árvores por todo o lado!
-    benefits:   Mais agradável para os peões.
+    title:      Prop2 title
+    problem:    Prop2 problem
+    solution:   Prop2 solution
+    benefits:   Prop2 benefits
     views:      200
     upvotes:    1
     downvotes:  624
     timestamp:  2012-09-04 14:16:12
-    proposer:   *bob
+    proposer:   *user2
 
-    
+
 - &prop3 !!models.Proposal
     id:         3
-    title:      A ponte Dona Maria devia ser um jardim
-    problem:    É ferro a mais.
-    solution:   Plantavam-se trepadeiras!
-    benefits:   Era inovador e bonito
+    title:      Prop3 title
+    problem:    Prop3 problem
+    solution:   Prop3 solution
+    benefits:   Prop3 benefits
     views:      1752
     upvotes:    523
     downvotes:  496
     timestamp:  2012-09-04 14:24:30
-    proposer:   *someone
+    proposer:   *user3
 
-                
+
 # Tags
 
 - &tag1 !!models.Tag
-    name: Tecnologia
-    desc: Propostas que incluem a utilização de algum tipo de tecnologia digital.
+    name: Tag1 name
+    desc: Tag1 description
     taggedProposals:
         - *prop1
-        
+
 - &tag2 !!models.Tag
-    name: Ambiente
-    desc: Propostas que visam melhorar o ambiente e os espaços verdes.
+    name: Tag2 name
+    desc: Tag2 description
     taggedProposals:
         - *prop2
         - *prop3
