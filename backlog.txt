@@ -1,82 +1,33 @@
 ﻿
-package models;
 
-import java.util.List;
 
-import javax.persistence.*;
 
-import play.db.ebean.*;
-
-import com.avaje.ebean.*;
-
-/**
- * A Tag is a subject or theme that classifies a specimen (like a
- * Proposal). Its main objective is to catalog/group similar specimens,
- * easing their search.
- */
-@Entity
-public class Tag extends Model {
-
-	@Id
-	public String name;
-	public String description;
-	@ManyToMany
-	public List<Proposal> taggedProposals;
-
-	/**
-	 * Finder
-	 */
-	public static Finder<String, Tag> find = new Finder<String, Tag>(
-			String.class, Tag.class);
-	
-	/**
-	 * Constructor
-	 * @param name
-	 * @param description
-	 */
-	public Tag(String name, String description) {
-		this.name = name;
-		this.description = description;
-	}
-	
-	public static Tag createAndSave(String name, String description) {
-		Tag t = new Tag(name, description);
-		t.save();
-		return t;
-	}
     
-	/**
-	 * @param tagId The name of a specific Tag
-	 * @return All proposals tagged with that Tag
-	 */
-    public List<Proposal> getTaggedProposals(String tagId) {
-    	return taggedProposals;
-    }
-    
-    /**
-     * Tags a specific Proposal with the current Tag.
-     * @param proposalId Identifier of Proposal to tag
-     */
-    public void tagProposal(Long proposalId) {
-    	Proposal p = Proposal.find.where().eq("id", proposalId).findUnique();
-    	taggedProposals.add(p)
-    }
- 
-    public String toString() {
-        return "Tag(" + name +")";
-    }
-	
-	/*
-	public static Tag findOrCreateByName(String name) {	
-	    Tag tag = find.where().eq("name", name).findUnique();
-	    if(tag == null) {
-	        tag = new Tag(name, "No description.");	// TODO i18d
-	    }
-	    return tag;
-	}
-	*/
+//    /**
+//     * Tags a specific Proposal with the current Tag.
+//     * @param proposalId Identifier of Proposal to tag
+//     */
+//    public void tagProposal(Long proposalId) {
+//      Proposal p = Proposal.find.where().eq("id", proposalId).findUnique();
+//      taggedProposals.add(p)
+//    }
 
-}
+
+/*
+    public static Tag findOrCreateByName(String name) { 
+        Tag tag = find.where().eq("name", name).findUnique();
+        if(tag == null) {
+            tag = new Tag(name, "No description."); // TODO i18d
+        }
+        return tag;
+    }
+*/
+
+//  public static Tag createAndSave(String name, String description) {
+//      Tag t = new Tag(name, description);
+//      t.save();
+//      return t;
+//  }
 
 
 /**
