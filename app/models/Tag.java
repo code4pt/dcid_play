@@ -1,6 +1,7 @@
 
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -20,7 +21,7 @@ public class Tag extends Model {
 	@Id
 	public String name;
 	public String desc;
-	@ManyToMany
+	@ManyToMany(mappedBy="tags")
 	public List<Proposal> taggedProposals;
 
 	/**
@@ -37,6 +38,7 @@ public class Tag extends Model {
 	public Tag(String name, String description) {
 		this.name = name;
 		this.desc = description;
+		this.taggedProposals = new ArrayList<Proposal>();
 	}
     
 	/**
@@ -55,7 +57,7 @@ public class Tag extends Model {
     }
  
     public String toString() {
-        return "Tag (name=" + name +")";
+        return "Tag (name=" + name + ", taggedProposals=" + taggedProposals.size() + ")";
     }
 
 }

@@ -25,6 +25,8 @@ public class Proposal extends Model {
 	public Date timestamp;	// date and time of creation // TODO investigate joda-time.sourceforge.net
 	@OneToOne
 	public User proposer;
+	@ManyToMany
+	public List<Tag> tags; 
 	
 	/**
 	 * Finder
@@ -43,6 +45,7 @@ public class Proposal extends Model {
 		this.timestamp = new Date();
 		this.views = this.upvotes = this.downvotes = 0;
 		this.proposer = null;
+		this.tags = new ArrayList<Tag>();
 	}
 	
 	/**
@@ -57,8 +60,7 @@ public class Proposal extends Model {
 	 */
 	public static Proposal createAndSave(String title, String problem, String solution, String benefits, String userId) {
 		Proposal p = new Proposal(title, problem, solution, benefits);
-		//p.proposer = User.find.ref(userId);
-		p.proposer = User.find.where().eq("email", userId).findUnique();
+		p.proposer = User.find.where().eq("email", userId).findUnique();	// TODO use long ID not email
 		p.save();
 		return p;
 	}
@@ -84,8 +86,15 @@ public class Proposal extends Model {
 		return upvotes - downvotes;
 	}
 	
+	/**
+	 * @return an Iterator with the Proposal's Tags.
+	 */
+	public Iterator<Tag> getTags() {
+		return tags.iterator();
+	}
+	
 	public String toString() {
-        return "Proposal(id=" + id + ", title=" + title + ", proposer=" + proposer.email + ")";
+        return "Proposal(id=" + id + ", title=" + title + ", proposer=" + proposer.getName() + ")";
     }
 	
 }
