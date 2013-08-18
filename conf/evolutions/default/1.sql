@@ -31,10 +31,10 @@ create table user (
 ;
 
 
-create table tag_proposal (
-  tag_name                       varchar(255) not null,
+create table proposal_tag (
   proposal_id                    bigint not null,
-  constraint pk_tag_proposal primary key (tag_name, proposal_id))
+  tag_name                       varchar(255) not null,
+  constraint pk_proposal_tag primary key (proposal_id, tag_name))
 ;
 create sequence proposal_seq;
 
@@ -47,9 +47,9 @@ create index ix_proposal_proposer_1 on proposal (proposer_email);
 
 
 
-alter table tag_proposal add constraint fk_tag_proposal_tag_01 foreign key (tag_name) references tag (name) on delete restrict on update restrict;
+alter table proposal_tag add constraint fk_proposal_tag_proposal_01 foreign key (proposal_id) references proposal (id) on delete restrict on update restrict;
 
-alter table tag_proposal add constraint fk_tag_proposal_proposal_02 foreign key (proposal_id) references proposal (id) on delete restrict on update restrict;
+alter table proposal_tag add constraint fk_proposal_tag_tag_02 foreign key (tag_name) references tag (name) on delete restrict on update restrict;
 
 # --- !Downs
 
@@ -57,9 +57,9 @@ SET REFERENTIAL_INTEGRITY FALSE;
 
 drop table if exists proposal;
 
-drop table if exists tag;
+drop table if exists proposal_tag;
 
-drop table if exists tag_proposal;
+drop table if exists tag;
 
 drop table if exists user;
 
