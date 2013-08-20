@@ -27,17 +27,17 @@ public class Application extends Controller {
         }
     }
     
-//    /**
-//     * @return the User logged in, otherwise null.
-//     */
-//    public static User getLoggedInUser() {
-//    	String loggedInUsername = request().username();
-//    	User loggedInUser = null;
-//    	if(loggedInUsername != null) {
-//    		loggedInUser  = User.find.byId(request().username());
-//    	}
-//    	return loggedInUser;
-//    }
+    /**
+     * @return the User logged in, otherwise null.
+     */
+    public static User getLoggedInUser() {
+    	String loggedInUsername = request().username();
+    	User loggedInUser = null;
+    	if(loggedInUsername != null) {
+    		loggedInUser  = User.find.byId(request().username());
+    	}
+    	return loggedInUser;
+    }
     
     
     /**
@@ -68,16 +68,16 @@ public class Application extends Controller {
         );
     }
     
-//    /**
-//     * View that lists existing Proposals. 
-//     */
-//    @Security.Authenticated(Secured.class)
-//    public static Result proposalList() {
-//        return ok(proposalList.render(
-//    		Proposal.find.all(),
-//    		getLoggedInUser()
-//		));
-//    }
+    /**
+     * View that lists existing Proposals. 
+     */
+    @Security.Authenticated(Secured.class)
+    public static Result proposalList() {
+        return ok(proposalList.render(
+    		getLoggedInUser(),
+    		Proposal.find.all()
+		));
+    }
     
     /**
      * Given a Login form, tries to authenticates a user.
