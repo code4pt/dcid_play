@@ -5,9 +5,7 @@ import play.data.Form;
 import static play.data.Form.*;
 import play.mvc.*;
 import views.html.*;
-import models.Proposal;
-import models.User;
-import models.Tag;
+import models.*;
 
 /**
  * Main controller.
@@ -32,6 +30,7 @@ public class Application extends Controller {
     /**
      * Home page
      */
+    @Security.Authenticated(Secured.class)
     public static Result index() {
         return ok(index.render(
     		Proposal.find.all(),
