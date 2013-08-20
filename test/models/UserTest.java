@@ -28,7 +28,7 @@ public class UserTest extends WithApplication {
 		User bob = User.find.where().eq("email", "bob@gmail.com").findUnique();
 
 		assertNotNull(bob);				// successfully retrieved
-		assertEquals("Bob", bob.name);	// correct user retrieved
+		assertEquals("Bob", bob.getName());	// correct user retrieved
 	}
 
 	@Test

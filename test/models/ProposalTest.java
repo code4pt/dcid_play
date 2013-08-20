@@ -28,7 +28,7 @@ public class ProposalTest extends WithApplication {
 		
 		assertNotNull(prop);							// test retrieval
 		assertEquals("Build a new park", prop.title);	// test correct creation and storage
-		assertEquals("Bob", prop.proposer.name);		// test correct storage of User
+		assertEquals("Bob", prop.proposer.getName());		// test correct storage of User
 	}
 	
 	// test the calculation of (positive and negative) scores
