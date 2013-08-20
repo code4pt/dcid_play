@@ -1,0 +1,23 @@
+@***** The inputs *****@
+@(loggedInUser: User)(proposals: List[Proposal])
+
+@************************
+ * The view's specifics *
+ ***********************@
+
+@title = { "Proposals" }
+@description = { "List of all existing proposals." }
+
+@content = {
+    <div class="span12">
+        <h1>Proposals</h1>        
+        <ul>
+            @for(prop <- proposals) {
+                <li><strong>@prop.title</strong> (+@prop.upvotes/-@prop.downvotes) <em>by @prop.proposer.getName()</em></li>
+            }
+        </ul>
+    </div>
+}
+
+@***** Finally render the view *****@
+@base-site(title)(description)(loggedInUser)(content) { }

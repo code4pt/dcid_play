@@ -27,34 +27,57 @@ public class Application extends Controller {
         }
     }
     
+//    /**
+//     * @return the User logged in, otherwise null.
+//     */
+//    public static User getLoggedInUser() {
+//    	String loggedInUsername = request().username();
+//    	User loggedInUser = null;
+//    	if(loggedInUsername != null) {
+//    		loggedInUser  = User.find.byId(request().username());
+//    	}
+//    	return loggedInUser;
+//    }
+    
+    
     /**
      * Home page
      */
-    @Security.Authenticated(Secured.class)
     public static Result index() {
-        return ok(index.render(
-    		Proposal.find.all(),
-    		User.find.all(),
-    		Tag.find.all()
+        return ok(index.render());
+    }
+    
+    /**
+     * Log in view.
+     */
+    public static Result login() {
+		return ok(login.render(
+			form(Login.class)
 		));
     }
     
     /**
-     * Login page
+     * Log out view.
      */
-    public static Result login() {
-    	return ok(login.render(
-    		form(Login.class)
-		));
-    }
-    
+    @Security.Authenticated(Secured.class)
     public static Result logout() {
         session().clear();
-        flash("successMsg", "You've been logged out");
+        flash("msgSuccess", "You've been logged out");
         return redirect(
             routes.Application.login()
         );
     }
+    
+//    /**
+//     * View that lists existing Proposals. 
+//     */
+//    @Security.Authenticated(Secured.class)
+//    public static Result proposalList() {
+//        return ok(proposalList.render(
+//    		Proposal.find.all(),
+//    		getLoggedInUser()
+//		));
+//    }
     
     /**
      * Given a Login form, tries to authenticates a user.

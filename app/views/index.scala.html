@@ -1,41 +1,24 @@
-@(proposals: List[Proposal], users: List[User], tags: List[Tag])
+@***** The inputs *****@
 
-@main("DCID") {
-    
-    <h1>propose . discuss . decide</h1>
-    <p><a class="btn btn-default" href="#">enter</a></p>
-    
-    <h2>Users</h2>
-    <ul>
-        @for(user <- users) {
-            <li>Name: @user.getName() | Email: @user.email</li>
-        }
-    </ul>
-    
-    <h2>Proposals</h2>
-    <ul>
-        @for(prop <- proposals) {
-            <li><strong>@prop.title</strong> (+@prop.upvotes/-@prop.downvotes) <em>by @prop.proposer.getName()</em></li>
-        }
-    </ul>
-    
-    <h2>Tags</h2>
-    @for(tag <- tags) {
-        <h3>@tag.name</h3>
-        <p><em>@tag.desc</em></p>
-        <p>Tagged proposals (@tag.getTaggedProposals().size()):</p>
-        <ul>
-            @for(prop <- tag.getTaggedProposals()) {
-                <li>@prop.title</li>
-            }
-        </ul>
-    }
-    
-    <h2>Proposals + Tags</h2>
-    <ul>
-        @for(prop <- proposals) {
-            <li><strong>@prop.title</strong> [@for(tag <- prop.getTags()) {<u>@tag.name</u>&nbsp;}]</li>
-        }
-    </ul>
-    
+
+@************************
+ * The view's specifics *
+ ***********************@
+
+@title = { "DCID" }
+@description = { "None" }
+
+@content = {
+    <br/><br/>
+    <div class="span12 text-center">
+        <h1><img src="@routes.Assets.at("img/logo-dcid.png")" width="300" height="auto" alt="DCID" /></h1>
+        <br/>
+        <h2><strong>PROPOSE</strong></h2>
+        <h2><strong>DISCUSS</strong></h2>
+        <h2><a href="@routes.Application.proposalList()"><button class="btn btn-success btn-lg"><strong>DCID</strong></button></a></h2>
+    </div>
+    <br/><br/>
 }
+
+@***** Finally render the view *****@
+@base-site(title)(description)(content) { }

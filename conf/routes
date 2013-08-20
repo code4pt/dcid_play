@@ -4,6 +4,7 @@
 
 # Main routes
 GET     /                           controllers.Application.index()
+GET     /proposals                  controllers.Application.proposalList()
 
 # Authentication
 GET     /login                      controllers.Application.login()
