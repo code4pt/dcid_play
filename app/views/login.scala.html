@@ -9,7 +9,10 @@
         @if(form.hasGlobalErrors) {
             <p class="text-danger">@form.globalError.message</p>
         }
-        <p><button class="btn btn-default" type="submit">Login</button></p>
+        @if(flash.contains("successMsg")) {
+            <p class="text-success">@flash.get("successMsg")</p>
+        }
+        <p><button class="btn btn-default" type="submit">Log in</button></p>
     }
     
 }

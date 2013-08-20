@@ -48,6 +48,14 @@ public class Application extends Controller {
 		));
     }
     
+    public static Result logout() {
+        session().clear();
+        flash("successMsg", "You've been logged out");
+        return redirect(
+            routes.Application.login()
+        );
+    }
+    
     /**
      * Given a Login form, tries to authenticates a user.
      */
