@@ -3,17 +3,17 @@
 
 - &user1 !!models.User
     email:      user1@example.com
-    name:       user1
+    name:       User One
     password:   secret
 
 - &user2 !!models.User
     email:      user2@example.com
-    name:       user2
+    name:       User Two
     password:   secret
 
 - &user3 !!models.User
     email:      user3@example.com
-    name:       user3
+    name:       User Three
     password:   secret
 
 

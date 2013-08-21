@@ -14,6 +14,7 @@ import play.db.ebean.*;
 @Entity
 public class Proposal extends Model {
 
+	// TODO make all fields private
 	@Id
 	public Long id;
 	public String title;
@@ -74,7 +75,77 @@ public class Proposal extends Model {
      * =================== */
 	
 	/**
-	 * @return the score, i.e. the difference between the upvotes and downvotes 
+	 * @return the Proposal's Proposal's numeric ID
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @return the Proposal's title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @return the Proposal's problem
+	 */
+	public String getProblem() {
+		return problem;
+	}
+
+	/**
+	 * @return the Proposal's solution
+	 */
+	public String getSolution() {
+		return solution;
+	}
+
+	/**
+	 * @return the Proposal's benefits
+	 */
+	public String getBenefits() {
+		return benefits;
+	}
+
+	/**
+	 * @return the Proposal's number of views
+	 */
+	public int getViews() {
+		return views;
+	}
+
+	/**
+	 * @return the Proposal's number of upvotes
+	 */
+	public int getUpvotes() {
+		return upvotes;
+	}
+
+	/**
+	 * @return the Proposal's number of downvotes
+	 */
+	public int getDownvotes() {
+		return downvotes;
+	}
+
+	/**
+	 * @return the timestamp when the Proposal was created
+	 */
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	/**
+	 * @return the User that created the Proposal
+	 */
+	public User getProposer() {
+		return proposer;
+	}
+	
+	/**
+	 * @return the Proposal's score, i.e. the difference between the upvotes and downvotes 
 	 */
 	public int getScore() {
 		return upvotes - downvotes;
@@ -86,28 +157,62 @@ public class Proposal extends Model {
 	public Iterator<Tag> getTags() {
 		return tags.iterator();
 	}
+
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
+	 * @param problem the problem to set
+	 */
+	public void setProblem(String problem) {
+		this.problem = problem;
+	}
+
+	/**
+	 * @param solution the solution to set
+	 */
+	public void setSolution(String solution) {
+		this.solution = solution;
+	}
+
+	/**
+	 * @param benefits the benefits to set
+	 */
+	public void setBenefits(String benefits) {
+		this.benefits = benefits;
+	}
 	
+	/* ============= *
+     * Other methods *
+     * ============= */
+	
+	/**
+	 * @param views increments the number of views
+	 */
+	public void incrementViews() {
+		this.views++;
+	}
+
 	/**
 	 * @return Increments the number of upvotes and then returns the total number of downvotes.
 	 */
-	public int voteUp() {
+	public int incrementUpvotes() {
 		return ++upvotes;
 	}
 	
 	/**
 	 * @return Increments the number of downvotes and then returns the total number of downvotes.
 	 */
-	public int voteDown() {
+	public int incrementDownvotes() {
 		return ++downvotes;
 	}
 	
-	
-	/* ============= *
-     * Other methods *
-     * ============= */
-	
 	public String toString() {
-        return "Proposal(id=" + id + ", title=" + title + ", proposer=" + proposer.getName() + ")";
+        return "Proposal(id=" + getId() + ", title=" + getTitle() + ", proposer=" + getProposer().getName() + ")";
     }
 	
 }
