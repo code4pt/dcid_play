@@ -66,6 +66,19 @@ public class Application extends Controller {
 		));
     }
     
+    
+    /* ============ *
+     * User related *
+     * ============ */
+    
+    @Security.Authenticated(Secured.class)
+    public static Result userAccount() {
+        return ok(userAccount.render(
+    		getLoggedInUser()
+		));
+    }
+    
+    
     /* ====================== *
      * Authentication related *
      * ====================== */

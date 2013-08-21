@@ -1,0 +1,18 @@
+@***** The inputs *****@
+@(loggedInUser: User)
+
+@************************
+ * The view's specifics *
+ ***********************@
+
+@content = {
+    <div class="span12">
+        <h1>My profile</h1>
+        <p><strong>Name:</strong> @loggedInUser.getName()</p>
+        <p><strong>Email:</strong> @loggedInUser.getEmail()</p>
+        <p><strong>Password:</strong> ???</p>
+    </div>
+}
+
+@***** Finally render the view *****@
+@baseApp("My account")("")(loggedInUser)(content)

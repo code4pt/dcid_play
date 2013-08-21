@@ -4,8 +4,13 @@
 
 # Main routes
 GET     /                           controllers.Application.index()
+
+# Proposals
 GET     /proposals                  controllers.Application.proposalList()
 GET     /proposals/:id              controllers.Application.proposalDetail(id: Long)
+
+# User account
+GET     /user                       controllers.Application.userAccount()
 
 # Authentication
 GET     /login                      controllers.Application.login()
