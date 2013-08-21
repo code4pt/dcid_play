@@ -10,7 +10,7 @@
         <h1>Proposals</h1>        
         <ul>
             @for(prop <- proposals) {
-                <li><strong>@prop.title</strong> (+@prop.upvotes/-@prop.downvotes) <em>by @prop.proposer.getName()</em></li>
+                <li><a href="@routes.Application.proposalDetail(prop.getId())">@prop.getTitle()</a> (@prop.getScore()) <em>by @prop.getProposer().getName()</em></li>
             }
         </ul>
     </div>
