@@ -10,6 +10,7 @@ import play.db.ebean.*;
  * This class represents a Proposal created by a User and voted by other Users.
  * A Proposal stores the proposer's arguments and the number of votes.
  */
+@SuppressWarnings("serial")
 @Entity
 public class Proposal extends Model {
 
@@ -28,15 +29,17 @@ public class Proposal extends Model {
 	@ManyToMany
 	public List<Tag> tags; 
 	
-	/**
-	 * Finder
-	 */
+	
+	/* ====== *
+     * Finder *
+     * ====== */
 	public static Model.Finder<Long, Proposal> find = new Model.Finder(
 			Long.class, Proposal.class);	
 	
-	/**
-	 * Constructor (init)
-	 */
+	
+	/* ================== *
+     * Constructor (init) *
+     * ================== */
 	private Proposal(String title, String problem, String solution, String benefits) {
 		this.title = title;
 		this.problem = problem;
@@ -64,20 +67,11 @@ public class Proposal extends Model {
 		p.save();
 		return p;
 	}
-		
-	/**
-	 * @return Increments the number of upvotes and then returns the total number of downvotes.
-	 */
-	public int voteUp() {
-		return ++upvotes;
-	}
 	
-	/**
-	 * @return Increments the number of downvotes and then returns the total number of downvotes.
-	 */
-	public int voteDown() {
-		return ++downvotes;
-	}
+	
+	/* =================== *
+     * Getters and Setters *
+     * =================== */
 	
 	/**
 	 * @return the score, i.e. the difference between the upvotes and downvotes 
@@ -92,6 +86,25 @@ public class Proposal extends Model {
 	public Iterator<Tag> getTags() {
 		return tags.iterator();
 	}
+	
+	/**
+	 * @return Increments the number of upvotes and then returns the total number of downvotes.
+	 */
+	public int voteUp() {
+		return ++upvotes;
+	}
+	
+	/**
+	 * @return Increments the number of downvotes and then returns the total number of downvotes.
+	 */
+	public int voteDown() {
+		return ++downvotes;
+	}
+	
+	
+	/* ============= *
+     * Other methods *
+     * ============= */
 	
 	public String toString() {
         return "Proposal(id=" + id + ", title=" + title + ", proposer=" + proposer.getName() + ")";
