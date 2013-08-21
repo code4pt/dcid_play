@@ -90,7 +90,7 @@ public class Application extends Controller {
             session().clear();
             session("email", loginForm.get().email);
             return redirect(
-                routes.Application.index()
+                routes.Application.proposalList()
             );
         }
     }
