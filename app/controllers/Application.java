@@ -58,13 +58,13 @@ public class Application extends Controller {
 		));
     }
     
-//    @Security.Authenticated(Secured.class)
-//    public static Result proposalDetail(Long proposalId) {
-//        return ok(proposalDetail.render(
-//    		getLoggedInUser(),
-//    		Proposal.find.byId(proposalId)
-//		));
-//    }
+    @Security.Authenticated(Secured.class)
+    public static Result proposalDetail(Long proposalId) {
+        return ok(proposalDetail.render(
+    		getLoggedInUser(),
+    		Proposal.find.byId(proposalId)
+		));
+    }
     
     /* ====================== *
      * Authentication related *

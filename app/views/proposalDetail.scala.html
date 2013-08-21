@@ -1,0 +1,21 @@
+@***** The inputs *****@
+@(loggedInUser: User)(proposal: Proposal)
+
+@************************
+ * The view's specifics *
+ ***********************@
+
+@content = {
+    <div class="span12">
+        <h1>@proposal.getTitle()</h1>
+        <p class="lead">@proposal.getProblem()</p>        
+        <h3><i class="icon-caret-right"></i>&nbsp;Solution</h3>
+        <p>@proposal.getSolution()</p>
+        <h3><i class="icon-caret-right"></i>&nbsp;Benefits</h3>
+        <p>@proposal.getBenefits()</p>
+        <br/> <!-- for low resolutions, separates the previous text from voting buttons bellow -->
+    </div>
+}
+
+@***** Finally render the view *****@
+@baseApp("Proposal")("Proposal's problem")(loggedInUser)(content)

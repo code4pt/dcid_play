@@ -5,6 +5,7 @@
 # Main routes
 GET     /                           controllers.Application.index()
 GET     /proposals                  controllers.Application.proposalList()
+GET     /proposals/:id              controllers.Application.proposalDetail(id: Long)
 
 # Authentication
 GET     /login                      controllers.Application.login()
