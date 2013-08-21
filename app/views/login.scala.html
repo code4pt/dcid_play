@@ -3,13 +3,13 @@
 
 @************************
  * The view's specifics *
- ***********************@ 
+ ************************@ 
 
 @content = {
     @helper.form(routes.Application.authenticate) {
         <h1>Sign in</h1>
-        <p><input type="email" name="email" placeholder="Your email" value="@form("email").value"></p>
-        <p><input type="password" name="password" placeholder="Your password"></p>
+        <p><input type="email" name="ffEmail" placeholder="Your email" value="@form("ffEmail").value"></p>
+        <p><input type="password" name="ffPassword" placeholder="Your password"></p>
         @if(form.hasGlobalErrors) {
             <div class="alert alert-danger">
                 <p>@form.globalError.message</p>
@@ -17,7 +17,7 @@
         }
         @if(flash.contains("msgSuccess")) {
             <div class="alert alert-success">
-                <p>@flash.get("msgSuccess")</p>
+                <p>@flash.get("msgLogin")</p>
             </div>
         }
         <p><button class="btn btn-default" type="submit">Log in</button></p>
@@ -25,4 +25,4 @@
 }
 
 @***** Finally render the view *****@
-@baseSite("DCID - Log in")("None")(content)
+@baseSite("DCID - Log in")("")(content)
