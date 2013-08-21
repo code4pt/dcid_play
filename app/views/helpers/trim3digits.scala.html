@@ -1,0 +1,20 @@
+@*************************************************************************
+ * Shorts a number to 3 digits and an optional letter. Letters are added *
+ * to represent multiples of a thousand: K for 1000, M for 1000000, ...  *
+ * Examples: 123456 => 123K; 7654321 => 7M                               *
+ *************************************************************************@
+@(value: String)
+
+<!-- n_digits = len(value) -->
+<!-- ten_times = 0 -->
+<!-- while(n_digits > 3): -->
+<!--     n_digits -= 3 -->
+<!--     ten_times += 1 -->
+<!-- if(ten_times == 0): -->
+<!--     return value -->
+<!-- elif(ten_times == 1): -->
+<!--     return value[:n_digits] + "K" -->
+<!-- elif(ten_times == 2): -->
+<!--     return value[:n_digits] + "M" -->
+<!-- else: -->
+<!--     return value -->
