@@ -62,7 +62,7 @@ public class Application extends Controller {
     @Security.Authenticated(Secured.class)
     public static Result logout() {
         session().clear();
-        flash("msgSuccess", "You've been logged out");
+        flash("msgSuccess", "Success, you've been logged out.");
         return redirect(
             routes.Application.login()
         );

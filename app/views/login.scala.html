@@ -11,10 +11,14 @@
         <p><input type="email" name="email" placeholder="Your email" value="@form("email").value"></p>
         <p><input type="password" name="password" placeholder="Your password"></p>
         @if(form.hasGlobalErrors) {
-            <p class="text-danger">@form.globalError.message</p>
+            <div class="alert alert-danger">
+                <p>@form.globalError.message</p>
+            </div>
         }
         @if(flash.contains("msgSuccess")) {
-            <p class="text-success">@flash.get("msgSuccess")</p>
+            <div class="alert alert-success">
+                <p>@flash.get("msgSuccess")</p>
+            </div>
         }
         <p><button class="btn btn-default" type="submit">Log in</button></p>
     }
