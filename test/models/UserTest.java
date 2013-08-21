@@ -17,6 +17,8 @@ public class UserTest extends WithApplication {
 
 	@Before
 	public void setUp() {
+//		start(fakeApplication(inMemoryDatabase(), fakeGlobal()));
+//      Ebean.save((List) Yaml.load("test-data.yml"));
 		start(fakeApplication(inMemoryDatabase()));
 	}
 

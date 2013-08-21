@@ -1,6 +1,5 @@
 package controllers;
 
-import play.*;
 import play.data.Form;
 import static play.data.Form.*;
 import play.mvc.*;
@@ -13,14 +12,14 @@ import models.*;
 public class Application extends Controller {
 	
 	/**
-     * Inner class containing all login related with an User's login.
+     * Inner class containing all login control related with an User's login.
      */
     public static class Login {    	
-        public String email;
-        public String password;
+        public String ffEmail;		// form field Email
+        public String ffPassword;	// form field Password
         
         public String validate() {
-            if (User.authenticate(email, password) == null) {
+            if (User.authenticate(ffEmail, ffPassword) == null) {
               return "Invalid login. Please, double-check your email and password.";
             }
             return null;
@@ -37,6 +36,18 @@ public class Application extends Controller {
     		loggedInUser  = User.find.byId(request().username());
     	}
     	return loggedInUser;
+    }
+    
+    
+    /**
+     * Handle view that lists existing Proposals. 
+     */
+    @Security.Authenticated(Secured.class)
+    public static Result proposalList() {
+        return ok(proposalList.render(
+    		getLoggedInUser(),
+    		Proposal.find.all()
+		));
     }
     
     
@@ -62,25 +73,14 @@ public class Application extends Controller {
     @Security.Authenticated(Secured.class)
     public static Result logout() {
         session().clear();
-        flash("msgSuccess", "You've been logged out");
+        flash("msgLogin", "Success, you've been logged out.");
         return redirect(
             routes.Application.login()
         );
     }
     
     /**
-     * View that lists existing Proposals. 
-     */
-    @Security.Authenticated(Secured.class)
-    public static Result proposalList() {
-        return ok(proposalList.render(
-    		getLoggedInUser(),
-    		Proposal.find.all()
-		));
-    }
-    
-    /**
-     * Given a Login form, tries to authenticates a user.
+     * Given a Login form, tries to authenticate a user.
      */
     public static Result authenticate() {
         Form<Login> loginForm = form(Login.class).bindFromRequest();
@@ -88,7 +88,7 @@ public class Application extends Controller {
             return badRequest(login.render(loginForm));
         } else {
             session().clear();
-            session("email", loginForm.get().email);
+            session("email", loginForm.get().ffEmail);
             return redirect(
                 routes.Application.proposalList()
             );

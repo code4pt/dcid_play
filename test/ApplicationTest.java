@@ -35,7 +35,7 @@ public class ApplicationTest {
     
     @Test
     public void renderTemplate() {
-        Content html = views.html.main.render("Page Title");
+        Content html = views.html.main.render("Page Title", null);
         assertThat(contentType(html)).isEqualTo("text/html");
         assertThat(contentAsString(html)).contains("DCID");
     }

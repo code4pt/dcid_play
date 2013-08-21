@@ -16,3 +16,4 @@ dist
 /.target
 # ------ temporary ignores below
 /test
+/bin
