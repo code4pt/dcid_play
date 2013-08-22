@@ -6,11 +6,14 @@
  ***********************@
 
 @content = {
-    <div class="span12">
-        <h1>My profile</h1>
-        <p><strong>Name:</strong> @loggedInUser.getName()</p>
-        <p><strong>Email:</strong> @loggedInUser.getEmail()</p>
-        <p><strong>Password:</strong> ???</p>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>@loggedInUser.getName()</h1>
+            <p><strong>Email:</strong> @loggedInUser.getEmail()</p>
+            <p><strong>Password:</strong> ???</p>
+            <h3>Settings</h3>
+            <p>Public name: Yes/No</p>
+        </div>
     </div>
 }
 

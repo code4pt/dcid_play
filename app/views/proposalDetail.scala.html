@@ -6,14 +6,30 @@
  ***********************@
 
 @content = {
-    <div class="span12">
-        <h1>@proposal.getTitle()</h1>
-        <p class="lead">@proposal.getProblem()</p>        
-        <h3><i class="icon-caret-right"></i>&nbsp;Solution</h3>
-        <p>@proposal.getSolution()</p>
-        <h3><i class="icon-caret-right"></i>&nbsp;Benefits</h3>
-        <p>@proposal.getBenefits()</p>
-        <br/> <!-- for low resolutions, separates the previous text from voting buttons bellow -->
+    <div class="row">
+        <div class="col-sm-9">
+            <h1>@proposal.getTitle()</h1>
+            <p class="lead">@proposal.getProblem()</p>        
+            <h3><i class="icon-caret-right"></i>&nbsp;Solution</h3>
+            <p>@proposal.getSolution()</p>
+            <h3><i class="icon-caret-right"></i>&nbsp;Benefits</h3>
+            <p>@proposal.getBenefits()</p>
+            <div class="visible-xs"><br/></div> <!-- separates this part from voting buttons bellow -->
+        </div>
+        <div class="col-sm-3">
+            <div class="hidden-xs"><br/><br/></div> <!-- avoids overlap with navbar -->
+            <p>votes:
+                <a class="btn btn-success btn-sm" id="" title="I agree with this proposal."
+                    href="#"><b><i class="icon-thumbs-up"></i>&nbsp;@proposal.getUpvotes()</b></a>
+                &nbsp;
+                <a class="btn btn-danger btn-sm" id="" title="I disagree with this proposal."
+                    href="#"><b><i class="icon-thumbs-down"></i>&nbsp;@proposal.getUpvotes()</b></a>
+            </p>
+            <p align="left">tags:</p>
+            <p>viewed: <b>@proposal.getViews() times</b></p>
+            <p>since: <b>@proposal.getTimestamp()</b></p>
+            <p>proposer: <b>@proposal.getProposer().getName()</b></p>
+        </div>
     </div>
 }
 
