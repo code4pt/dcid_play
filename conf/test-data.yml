@@ -59,15 +59,15 @@
 
 # Tags
 
-- &tag1 !!models.Tag
-    name: Tag1 name
-    desc: Tag1 description
-    taggedProposals:
-        - *prop1
-
-- &tag2 !!models.Tag
-    name: Tag2 name
-    desc: Tag2 description
-    taggedProposals:
-        - *prop2
-        - *prop3
+#- &tag1 !!models.Tag
+#    name: Tag1 name
+#    desc: Tag1 description
+#    taggedProposals:
+#        - *prop1
+#
+#- &tag2 !!models.Tag
+#    name: Tag2 name
+#    desc: Tag2 description
+#    taggedProposals:
+#        - *prop2
+#        - *prop3

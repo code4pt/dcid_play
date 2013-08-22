@@ -27,8 +27,6 @@ public class Proposal extends Model {
 	public Date timestamp;	// date and time of creation // TODO investigate joda-time.sourceforge.net
 	@OneToOne
 	public User proposer;
-	@ManyToMany
-	public List<Tag> tags; 
 	
 	
 	/* ====== *
@@ -49,7 +47,6 @@ public class Proposal extends Model {
 		this.timestamp = new Date();
 		this.views = this.upvotes = this.downvotes = 0;
 		this.proposer = null;
-		this.tags = new ArrayList<Tag>();
 	}
 	
 	/**
@@ -149,13 +146,6 @@ public class Proposal extends Model {
 	 */
 	public int getScore() {
 		return upvotes - downvotes;
-	}
-	
-	/**
-	 * @return an Iterator with the Proposal's Tags.
-	 */
-	public Iterator<Tag> getTags() {
-		return tags.iterator();
 	}
 
 	/**

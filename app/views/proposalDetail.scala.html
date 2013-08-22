@@ -18,17 +18,17 @@
         </div>
         <div class="col-sm-3">
             <div class="hidden-xs"><br/><br/></div> <!-- avoids overlap with navbar -->
-            <p>votes:
+            <p>Votes:
                 <a class="btn btn-success btn-sm" id="" title="I agree with this proposal."
                     href="#"><b><i class="icon-thumbs-up"></i>&nbsp;@proposal.getUpvotes()</b></a>
                 &nbsp;
                 <a class="btn btn-danger btn-sm" id="" title="I disagree with this proposal."
                     href="#"><b><i class="icon-thumbs-down"></i>&nbsp;@proposal.getUpvotes()</b></a>
             </p>
-            <p align="left">tags:</p>
-            <p>viewed: <b>@proposal.getViews() times</b></p>
-            <p>since: <b>@proposal.getTimestamp()</b></p>
-            <p>proposer: <b>@proposal.getProposer().getName()</b></p>
+            <p align="left">Tags: <a class="label label-default" href="#">Civic Participation</a>&nbsp;<a class="label label-default" href="#">Environment</a></p>
+            <p>Viewed: <b>@proposal.getViews() times</b></p>
+            <p>Since: <b>@proposal.getTimestamp()</b></p>
+            <p>Proposer: <b>@proposal.getProposer().getName()</b></p>
         </div>
     </div>
 }
