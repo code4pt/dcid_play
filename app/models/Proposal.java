@@ -133,6 +133,14 @@ public class Proposal extends Model {
 	public Date getTimestamp() {
 		return timestamp;
 	}
+	
+	/**
+	 * @param desiredFormat A SimpleDateFormat string specifying how the timestamp show be formatted  
+	 * @return a timestamp formatted according to the input
+	 */
+	public String getTimestamp(String desiredFormat) {
+		return new java.text.SimpleDateFormat(desiredFormat).format(getTimestamp());
+	}
 
 	/**
 	 * @return the User that created the Proposal

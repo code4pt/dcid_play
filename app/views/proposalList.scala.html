@@ -29,8 +29,9 @@
                     </div> <!-- end of mobile res -->
                     <div class="col-xs-9">
                         <h3><a href="@routes.Application.proposalDetail(p.getId())"><strong>@p.getTitle()</strong></a></h3>
-                        <p><a class="label label-default" href="#">Civic Participation</a>&nbsp;<a class="label label-default" href="#">Environment</a>&nbsp;
-                            Proposed by <a href="#">@p.getProposer().getName()</a>, in @p.getTimestamp()
+                        <p>
+                            by <a href="#">@p.getProposer().getName()</a>, in @p.getTimestamp("d MMMMM")&nbsp;
+                            <a class="label label-default" href="#">Civic Participation</a>&nbsp;<a class="label label-default" href="#">Environment</a>
                         </p>
                     </div>
                 </div>
