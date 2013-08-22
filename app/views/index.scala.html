@@ -6,15 +6,17 @@
  ************************@
 
 @content = {
-    <br/><br/>
-    <div class="span12 text-center">
-        <h1><img src="@routes.Assets.at("img/logo-dcid.png")" width="300" height="auto" alt="DCID" /></h1>
-        <br/>
-        <h2><strong>PROPOSE</strong></h2>
-        <h2><strong>DISCUSS</strong></h2>
-        <h2><a href="@routes.Application.proposalList()"><button class="btn btn-success btn-lg"><strong>DCID</strong></button></a></h2>
+    <div class="row">
+        <br/><br/>
+        <div class="col-md-12 text-center">
+            <h1><img src="@routes.Assets.at("img/logo-dcid.png")" width="300" height="auto" alt="DCID" /></h1>
+            <br/>
+            <h2><strong>PROPOSE</strong></h2>
+            <h2><strong>DISCUSS</strong></h2>
+            <h2><a href="@routes.Application.proposalList()"><button class="btn btn-success btn-lg"><strong>DCID</strong></button></a></h2>
+        </div>
+        <br/><br/>
     </div>
-    <br/><br/>
 }
 
 @***** Finally render the view *****@

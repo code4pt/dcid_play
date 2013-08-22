@@ -6,22 +6,26 @@
  ************************@ 
 
 @content = {
-    @helper.form(routes.Application.authenticate) {
-        <h1>Sign in</h1>
-        <p><input type="email" name="ffEmail" placeholder="Your email" value="@form("ffEmail").value"></p>
-        <p><input type="password" name="ffPassword" placeholder="Your password"></p>
-        @if(form.hasGlobalErrors) {
-            <div class="alert alert-danger">
-                <p>@form.globalError.message</p>
-            </div>
-        }
-        @if(flash.contains("msgSuccess")) {
-            <div class="alert alert-success">
-                <p>@flash.get("msgLogin")</p>
-            </div>
-        }
-        <p><button class="btn btn-default" type="submit">Log in</button></p>
-    }
+    <div class="row">
+        <div class="col-md-12">
+            @helper.form(routes.Application.authenticate) {
+                <h1>Sign in</h1>
+                <p><input type="email" name="ffEmail" placeholder="Your email" value="@form("ffEmail").value"></p>
+                <p><input type="password" name="ffPassword" placeholder="Your password"></p>
+                @if(form.hasGlobalErrors) {
+                    <div class="alert alert-danger">
+                        <p>@form.globalError.message</p>
+                    </div>
+                }
+                @if(flash.contains("msgSuccess")) {
+                    <div class="alert alert-success">
+                        <p>@flash.get("msgLogin")</p>
+                    </div>
+                }
+                <p><button class="btn btn-default" type="submit">Log in</button></p>
+            }
+        </div>
+    </div>
 }
 
 @***** Finally render the view *****@
