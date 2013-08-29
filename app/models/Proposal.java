@@ -148,13 +148,6 @@ public class Proposal extends Model {
 	public User getProposer() {
 		return proposer;
 	}
-	
-	/**
-	 * @return the Proposal's score, i.e. the difference between the upvotes and downvotes 
-	 */
-	public int getScore() {
-		return upvotes - downvotes;
-	}
 
 	/**
 	 * @param title the title to set
@@ -187,6 +180,13 @@ public class Proposal extends Model {
 	/* ============= *
      * Other methods *
      * ============= */
+	
+	/**
+	 * @return the Proposal's score, i.e. the difference between the upvotes and downvotes 
+	 */
+	public int getScore() {
+		return upvotes - downvotes;
+	}
 	
 	/**
 	 * @param views increments the number of views
