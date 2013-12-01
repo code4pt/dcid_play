@@ -1,7 +1,5 @@
 package models;
 
-import java.util.List;
-
 import models.*;
 
 import org.junit.*;
