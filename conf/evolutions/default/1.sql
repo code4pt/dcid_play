@@ -14,6 +14,7 @@ create table proposal (
   downvotes                 integer,
   timestamp                 timestamp,
   proposer_email            varchar(255),
+  tag                       varchar(255),
   constraint pk_proposal primary key (id))
 ;
 

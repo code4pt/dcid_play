@@ -12,25 +12,6 @@
     password:   segredo
 
 
-# ==== Tags ====
-
-- &tag1 !!models.Tag
-    title:          Portugal-atractivo
-    description:    Aqui fica a descrição deste tema...
-    
-- &tag2 !!models.Tag
-    title:          Portugal-do-conhecimento
-    description:    Aqui fica a descrição deste tema...
-    
-- &tag3 !!models.Tag
-    title:          Portugal-empreendedor
-    description:    Aqui fica a descrição deste tema...
-
-- &tag4 !!models.Tag
-    title:          Geral
-    description:    Todas as propostas que não encaixam nos outros temas
-
-
 # ==== Proposals ====
 
 - &prop1 !!models.Proposal
