@@ -2,9 +2,9 @@
 # ==== Users ====
 
 - &user1 !!models.User
-    email:      admin@portugalagora.com
-    name:       Utilizador Administrador
-    password:   admin
+    email:      ampedro@portugalagora.com
+    name:       Ana Margarida Pedro
+    password:   segredo
 
 - &user2 !!models.User
     email:      gfortes@portugalagora.com
