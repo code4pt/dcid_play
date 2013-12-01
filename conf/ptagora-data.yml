@@ -1,0 +1,60 @@
+﻿
+# ==== Users ====
+
+- &user1 !!models.User
+    email:      admin@portugalagora.com
+    name:       Utilizador Administrador
+    password:   admin
+
+- &user2 !!models.User
+    email:      gfortes@portugalagora.com
+    name:       Gonçalo Fortes
+    password:   segredo
+
+
+# ==== Tags ====
+
+- &tag1 !!models.Tag
+    title:          Portugal-atractivo
+    description:    Aqui fica a descrição deste tema...
+    
+- &tag2 !!models.Tag
+    title:          Portugal-do-conhecimento
+    description:    Aqui fica a descrição deste tema...
+    
+- &tag3 !!models.Tag
+    title:          Portugal-empreendedor
+    description:    Aqui fica a descrição deste tema...
+
+- &tag4 !!models.Tag
+    title:          Geral
+    description:    Todas as propostas que não encaixam nos outros temas
+
+
+# ==== Proposals ====
+
+- &prop1 !!models.Proposal
+    id:         1
+    title:      Costa da inovação
+    problem:    Eixo Atracção Profissional
+    solution:   Promover Portugal como lugar de residência e trabalho para pessoas com profissões que são independente de qualquer local (IT por exemplo)
+    benefits:   Mais empresas, mais postos de trabalho altemente qualificados, sinergias, efeitos de “bola de neve” (uns araem outros tipo “Silicon Valley”
+    views:      968
+    upvotes:    8624
+    downvotes:  17
+    timestamp:  2013-03-08 14:59:30.252
+    tag:        Portugal-Atractivo
+    proposer:   *user1
+
+- &prop2 !!models.Proposal
+    id:         2
+    title:      Fazer do turismo um grande desígnio nacional
+    problem:    Eixo Turismo e Eventos
+    solution:   Fazer, fazer, fazer
+    benefits:   À vista de todos
+    views:      200
+    upvotes:    1
+    downvotes:  624
+    timestamp:  2012-09-04 14:16:12
+    tag:        Portugal-Empreendedor
+    proposer:   *user2

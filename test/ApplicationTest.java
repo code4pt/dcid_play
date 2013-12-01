@@ -26,18 +26,17 @@ import static org.fest.assertions.Assertions.*;
 */
 public class ApplicationTest {
 
-    @Test 
-    public void simpleCheck() {
-        int a = 1 + 1;
-        assertThat(a).isEqualTo(2);
-    }
-    
-    @Test
-    public void renderTemplate() {
-        Content html = views.html.main.render("Page Title");
-        assertThat(contentType(html)).isEqualTo("text/html");
-        assertThat(contentAsString(html)).contains("DCID");
-    }
-  
+//    @Test 
+//    public void simpleCheck() {
+//        int a = 1 + 1;
+//        assertThat(a).isEqualTo(2);
+//    }
+//    
+//    @Test
+//    public void renderTemplate() {
+//        Content html = views.html.main.render("Page Title");
+//        assertThat(contentType(html)).isEqualTo("text/html");
+//        assertThat(contentAsString(html)).contains("DCID");
+//    }
    
 }

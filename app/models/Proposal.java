@@ -32,7 +32,7 @@ public class Proposal extends Model {
 	/* ====== *
      * Finder *
      * ====== */
-	public static Model.Finder<Long, Proposal> find = new Model.Finder(
+	public static Finder<Long, Proposal> find = new Finder<Long, Proposal>(
 			Long.class, Proposal.class);	
 	
 	
