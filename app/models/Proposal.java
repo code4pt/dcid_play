@@ -27,6 +27,7 @@ public class Proposal extends Model {
 	public Date timestamp;	// date and time of creation // TODO investigate joda-time.sourceforge.net
 	@OneToOne
 	public User proposer;
+	public String tag;
 	
 	
 	/* ====== *
@@ -149,6 +150,10 @@ public class Proposal extends Model {
 		return proposer;
 	}
 
+	public String getTag() {
+		return tag;
+	}
+
 	/**
 	 * @param title the title to set
 	 */
@@ -177,6 +182,10 @@ public class Proposal extends Model {
 		this.benefits = benefits;
 	}
 	
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+	
 	/* ============= *
      * Other methods *
      * ============= */
@@ -186,6 +195,22 @@ public class Proposal extends Model {
 	 */
 	public int getScore() {
 		return upvotes - downvotes;
+	}
+	
+	/**
+	 * Returns a summary of the proposal. 
+	 * @param maxChars the maximum number of characters allowed for the summary
+	 * @return Proposal's summary
+	 */
+	public String getSummary(int maxChars) {
+		String summary = getSolution();
+		if(summary.length() < maxChars) {
+			return summary;
+		}
+		else {
+			int indexOfLastCompleteWord = summary.lastIndexOf(" ", maxChars-3);	// -3 will provide space for the "..."
+			return summary.substring(0, indexOfLastCompleteWord) + "...";
+		}	
 	}
 	
 	/**

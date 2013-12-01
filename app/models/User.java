@@ -46,6 +46,10 @@ public class User extends Model {
 		return email;
 	}
 	
+	public int getPasswordLength() {
+		return password.length();
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
