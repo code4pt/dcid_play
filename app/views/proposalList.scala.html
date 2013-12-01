@@ -31,7 +31,7 @@
                         <h3><a href="@routes.Application.proposalDetail(p.getId())"><strong>@p.getTitle()</strong></a></h3>
                         <p>
                             by <a href="#">@p.getProposer().getName()</a>, in @p.getTimestamp("d MMMMM")&nbsp;
-                            <a class="label label-default" href="#">Civic Participation</a>&nbsp;<a class="label label-default" href="#">Environment</a>
+                            <a class="label label-default" href="#">@p.getTag()</a>
                         </p>
                     </div>
                 </div>

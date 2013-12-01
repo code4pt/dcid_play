@@ -27,13 +27,14 @@ public class Proposal extends Model {
 	public Date timestamp;	// date and time of creation // TODO investigate joda-time.sourceforge.net
 	@OneToOne
 	public User proposer;
+	public String tag;			// TODO make it a model with a relationship
 	
 	
 	/* ====== *
      * Finder *
      * ====== */
-	public static Model.Finder<Long, Proposal> find = new Model.Finder(
-			Long.class, Proposal.class);	
+	public static Finder<Long, Proposal> find = new Finder<Long, Proposal>(
+			Long.class, Proposal.class);
 	
 	
 	/* ================== *
@@ -46,6 +47,7 @@ public class Proposal extends Model {
 		this.benefits = benefits;
 		this.timestamp = new Date();
 		this.views = this.upvotes = this.downvotes = 0;
+		this.tag = "Geral";
 		this.proposer = null;
 	}
 	
@@ -59,8 +61,9 @@ public class Proposal extends Model {
 	 * @param userId Identifier of the proposer
 	 * @return The new proposal created
 	 */
-	public static Proposal createAndSave(String title, String problem, String solution, String benefits, String userId) {
+	public static Proposal createAndSave(String title, String problem, String solution, String benefits, String userId, String tagTitle) {
 		Proposal p = new Proposal(title, problem, solution, benefits);
+		p.tag = tagTitle;
 		p.proposer = User.find.where().eq("email", userId).findUnique();	// TODO use long ID not email
 		p.save();
 		return p;
@@ -147,6 +150,13 @@ public class Proposal extends Model {
 	 */
 	public User getProposer() {
 		return proposer;
+	}
+	
+	/**
+	 * @return the Proposal's tag
+	 */
+	public String getTag() {
+		return tag;
 	}
 
 	/**

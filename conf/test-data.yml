@@ -1,5 +1,5 @@
 ﻿
-# Users
+# ==== Users ====
 
 - &user1 !!models.User
     email:      user1@example.com
@@ -17,18 +17,33 @@
     password:   secret
 
 
-# Proposals
+# ==== Tags ====
+
+- &tag1 !!models.Tag
+    title:      Política
+    
+- &tag2 !!models.Tag
+    title:      Ambiente
+    
+- &tag3 !!models.Tag
+    title:      Urbanismo
+
+- &tag4 !!models.Tag
+    title:      Geral
+
+# ==== Proposals ====
 
 - &prop1 !!models.Proposal
     id:         1
-    title:      Prop1 title
-    problem:    Prop1 problem
-    solution:   Prop1 solution
-    benefits:   Prop1 benefits
+    title:      costa da Inovação
+    problem:    Eixo Atracção Profissional
+    solution:   Promover Portugal como lugar de residência e trabalho para pessoas com profissões que são independente de qualquer local (IT por exemplo)
+    benefits:   Mais empresas, mais postos de trabalho altemente qualificados, sinergias, efeitos de “bola de neve” (uns araem outros tipo “Silicon Valley”
     views:      968
-    upvotes:    17
-    downvotes:  8624
-    timestamp:  2010-03-08 14:59:30.252
+    upvotes:    8624
+    downvotes:  17
+    timestamp:  2013-03-08 14:59:30.252
+    tag:        *tag1
     proposer:   *user1
 
 - &prop2 !!models.Proposal
@@ -41,6 +56,7 @@
     upvotes:    1
     downvotes:  624
     timestamp:  2012-09-04 14:16:12
+    tag:        *tag2
     proposer:   *user2
 
 
@@ -54,20 +70,5 @@
     upvotes:    523
     downvotes:  496
     timestamp:  2012-09-04 14:24:30
+    tag:        *tag3
     proposer:   *user3
-
-
-# Tags
-
-#- &tag1 !!models.Tag
-#    name: Tag1 name
-#    desc: Tag1 description
-#    taggedProposals:
-#        - *prop1
-#
-#- &tag2 !!models.Tag
-#    name: Tag2 name
-#    desc: Tag2 description
-#    taggedProposals:
-#        - *prop2
-#        - *prop3

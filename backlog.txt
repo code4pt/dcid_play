@@ -1,7 +1,4 @@
 ﻿
-
-
-
     
 //    /**
 //     * Tags a specific Proposal with the current Tag.
@@ -22,12 +19,6 @@
         return tag;
     }
 */
-
-//  public static Tag createAndSave(String name, String description) {
-//      Tag t = new Tag(name, description);
-//      t.save();
-//      return t;
-//  }
 
 
 /**

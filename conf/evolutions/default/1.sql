@@ -14,7 +14,15 @@ create table proposal (
   downvotes                 integer,
   timestamp                 timestamp,
   proposer_email            varchar(255),
+  tag                       varchar(255),
   constraint pk_proposal primary key (id))
+;
+
+create table tag (
+  id                        bigint not null,
+  title                     varchar(255),
+  description               varchar(255),
+  constraint pk_tag primary key (id))
 ;
 
 create table user (
@@ -25,6 +33,8 @@ create table user (
 ;
 
 create sequence proposal_seq;
+
+create sequence tag_seq;
 
 create sequence user_seq;
 
@@ -39,11 +49,15 @@ SET REFERENTIAL_INTEGRITY FALSE;
 
 drop table if exists proposal;
 
+drop table if exists tag;
+
 drop table if exists user;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists proposal_seq;
+
+drop sequence if exists tag_seq;
 
 drop sequence if exists user_seq;
 

@@ -1,0 +1,51 @@
+@***** The inputs *****@
+@(loggedInUser: User)(tag: Tag)(proposals: List[Proposal])
+
+@************************
+ * The view's specifics *
+ ************************@
+
+@content = {}
+@* 
+@content = {
+	<div class="row">
+	    <div class="col-md-12">
+		    <h1>@tag.getTitle()</h2>
+		    <p><i>@tag.getDescription()</i></p>
+		    <br/>
+		    @for(p <- proposals) {
+		    	if(@p.getTag().getId() == @tag.getId()) {
+		    		<hr/>
+	                <div class="row">
+	                    <div class="col-xs-3 text-center hidden-xs"> <!-- desktop res -->
+	                        <br/><!-- TODO vertical align the right way -->
+	                        <div class="btn-group btn-group">
+	                            <button type="button" class="btn btn-success"><i class="icon-thumbs-up"></i></button>
+	                            <button type="button" class="btn btn-default" disabled="disabled"><strong>@p.getScore()</strong></button>
+	                            <button type="button" class="btn btn-danger"><i class="icon-thumbs-down"></i></button>
+	                        </div>
+	                    </div> <!-- end of desktop res -->
+	                    <div class="col-xs-3 text-center visible-xs"> <!-- mobile res -->
+	                        <div class="btn-group-vertical">
+	                            <button type="button" class="btn btn-success btn-sm"><i class="icon-thumbs-up"></i></button>
+	                            <button type="button" class="btn btn-default" disabled="disabled"><strong>@p.getScore()</strong></button>
+	                            <button type="button" class="btn btn-danger btn-sm"><i class="icon-thumbs-down"></i></button>
+	                        </div>
+	                    </div> <!-- end of mobile res -->
+	                    <div class="col-xs-9">
+	                        <h3><a href="@routes.Application.proposalDetail(p.getId())"><strong>@p.getTitle()</strong></a></h3>
+	                        <p>
+	                            by <a href="#">@p.getProposer().getName()</a>, in @p.getTimestamp("d MMMMM")&nbsp;
+	                            <a class="label label-default" href="@routes.Application.tagDetail(p.getTag().getId())">@p.getTag().getTitle()</a>
+	                        </p>
+	                    </div>
+	                </div>
+		    	}
+            }
+	    </div>
+    </div>
+}
+*@
+
+@***** Finally render the view *****@
+@baseApp("Tag")("Proposals tagged with a specific tag")(loggedInUser)(content)

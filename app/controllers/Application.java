@@ -67,6 +67,31 @@ public class Application extends Controller {
     }
     
     
+    /* =========== *
+     * Tag related *
+     * =========== */
+    
+    /**
+     * View that lists existing Tags. 
+     */
+    @Security.Authenticated(Secured.class)
+    public static Result tagList() {
+        return ok(tagList.render(
+    		getLoggedInUser(),
+    		Tag.find.all()
+		));
+    }
+    
+    @Security.Authenticated(Secured.class)
+    public static Result tagDetail(Long tagId) {
+        return ok(tagDetail.render(
+    		getLoggedInUser(),
+    		Tag.find.byId(tagId),
+    		Proposal.find.all()
+		));
+    }
+    
+    
     /* ============ *
      * User related *
      * ============ */

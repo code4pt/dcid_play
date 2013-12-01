@@ -1,0 +1,31 @@
+@***** The inputs *****@
+@(loggedInUser: User)(tags: List[Tag])
+
+@************************
+ * The view's specifics *
+ ************************@
+
+@content = {}
+@*
+@content = {
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Tags</h1>
+            <br/>
+            <p>These are the all the existing tags. Click on a tag to view proposals of that subject.</p>
+            <br/>
+            @if(tags.isEmpty()) {
+            	<p align="center">
+                @for(t <- tags) {
+                	<button type="button" class="btn btn-large btn-info"><a href="#">@t.getTitle()</a></button>&nbsp;&nbsp;
+                }
+            } else {
+            	<p align="center">No tags found.</p>
+            }
+        </div>
+    </div>
+}
+*@
+
+@***** Finally render the view *****@
+@baseApp("Tags")("List of all existing tags.")(loggedInUser)(content)

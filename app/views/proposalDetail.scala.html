@@ -25,7 +25,7 @@
                 <a class="btn btn-danger btn-sm" id="" title="I disagree with this proposal."
                     href="#"><b><i class="icon-thumbs-down"></i>&nbsp;@proposal.getUpvotes()</b></a>
             </p>
-            <p align="left">Tags: <a class="label label-default" href="#">Civic Participation</a>&nbsp;<a class="label label-default" href="#">Environment</a></p>
+            <p align="left">Tags: <a class="label label-default" href="#">@proposal.getTag()</a></p>
             <p>Viewed: <b>@proposal.getViews() times</b></p>
             <p>Since: <b>@proposal.getTimestamp("d MMMMM yyyy")</b></p>
             <p>Proposer: <b>@proposal.getProposer().getName()</b></p>
@@ -34,4 +34,4 @@
 }
 
 @***** Finally render the view *****@
-@baseApp("Proposal")("Proposal's problem")(loggedInUser)(content)
+@baseApp("Proposal")("Proposal's detail page")(loggedInUser)(content)

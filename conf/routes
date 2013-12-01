@@ -9,6 +9,10 @@ GET     /                           controllers.Application.index()
 GET     /proposals                  controllers.Application.proposalList()
 GET     /proposals/:id              controllers.Application.proposalDetail(id: Long)
 
+# Tags
+GET     /tags                       controllers.Application.tagList()
+GET     /tags/:id                   controllers.Application.tagDetail(id: Long)
+
 # User account
 GET     /user                       controllers.Application.userAccount()
 

@@ -33,6 +33,20 @@ public class User extends Model {
 		this.password = password;
 	}
 	
+	/**
+	 * Creates a new User (using a private constructor), initializes all
+	 * fields, saves the user, and returns it.
+	 * @param email
+	 * @param name
+	 * @param password
+	 * @return The new user created
+	 */
+	public static User createAndSave(String email, String name, String password) {
+		User u = new User(email, name, password);
+		u.save();
+		return u;
+	}
+	
 	
 	/* =================== *
      * Getters and Setters *
