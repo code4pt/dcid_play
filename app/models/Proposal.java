@@ -1,9 +1,10 @@
 package models;
 
-import java.util.Date;
+import java.util.*;
+
 import javax.persistence.*;
 
-import play.db.ebean.Model;
+import play.db.ebean.*;
 
 /**
  * This class represents a Proposal created by a User and voted by other Users.
@@ -33,7 +34,8 @@ public class Proposal extends Model {
      * Finder *
      * ====== */
 	public static Finder<Long, Proposal> find = new Finder<Long, Proposal>(
-			Long.class, Proposal.class);
+			Long.class, Proposal.class);	
+	
 	
 	/* ================== *
      * Constructor (init) *
@@ -235,32 +237,5 @@ public class Proposal extends Model {
 	public String toString() {
         return "Proposal(id=" + getId() + ", title=" + getTitle() + ", proposer=" + getProposer().getName() + ")";
     }
-	
-	/* ============== *
-     * Static methods *
-     * ============== */
-	
-	/**
-	 * @param proposalId Identifier of the Proposal to consider
-	 * @param userId The identifier of a User
-	 * @return true if that User is the author of the considered proposal; false otherwise.
-	 */
-	public boolean isProposedBy(Long proposalId, String userId) {
-		String proposersName = find.byId(proposalId).getProposer().getName();
-		return proposersName.compareTo(userId) == 0 ? true : false;
-	}
-	
-	/**
-	 * 
-	 * @param proposalId Identifier of Proposal to edit
-	 * @param newProblem New value to set
-	 * @return The value of field <em>problem</em> after the edit
-	 */
-	public static String editProblem(Long proposalId, String newProblem) {
-		Proposal proposalToUpdate = find.byId(proposalId);
-		proposalToUpdate.setProblem(newProblem);
-		proposalToUpdate.update();
-		return proposalToUpdate.getProblem();
-	}
 	
 }

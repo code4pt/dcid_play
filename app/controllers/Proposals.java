@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.*;
+
 import static play.data.Form.form;
 import play.mvc.*;
 import models.*;
@@ -15,15 +17,17 @@ public class Proposals extends Controller {
 	    
 	    return ok(displayProposalDetail.render(newProposal));
 	}
-	
-	public static Result editProblem(Long proposalId) {
-	    if (Secured.isAllowedToEdit(proposalId)) {
-	        return ok(
-	        		Proposal.editProblem(proposalId, form().bindFromRequest().get("username"))
-	        );
-	    } else {
-	        return forbidden();
-	    }
-	}
-	
+//	public static Result propose() {
+//	    Proposal newProposal = Proposal.createAndSave(title, problem, solution, benefits,
+//	    		request().username())
+//	    		
+//	    		
+//	    		.create(
+//	        "New project",
+//	        form().bindFromRequest().get("group"),
+//	        request().username()
+//	    );
+//	    return ok(item.render(newProject));
+//	}
+
 }
