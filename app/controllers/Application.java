@@ -1,4 +1,4 @@
-﻿package controllers;
+package controllers;
 
 import play.data.Form;
 import static play.data.Form.*;

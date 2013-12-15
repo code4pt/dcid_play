@@ -1,4 +1,4 @@
-﻿~ DCID ~
+~ DCID ~
 ========
 
 *propose . discuss . decide*

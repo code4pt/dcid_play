@@ -1,4 +1,4 @@
-﻿import play.*;
+import play.*;
 import play.libs.*;
 import com.avaje.ebean.Ebean;
 import models.*;
