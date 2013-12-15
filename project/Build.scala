@@ -1,4 +1,4 @@
-import sbt._
+﻿import sbt._
 import Keys._
 import play.Project._
 
