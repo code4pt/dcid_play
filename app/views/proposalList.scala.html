@@ -28,7 +28,7 @@
                         </div>
                     </div> <!-- end of mobile res -->
                     <div class="col-xs-9">
-                        <h1><a href="@routes.Application.proposalDetail(p.getId())">@p.getTitle()</a></h1>
+                        <h1><a href="@routes.Proposals.proposalDetail(p.getId())">@p.getTitle()</a></h1>
                         <p>@p.getSummary(120)</p>
                         <p>by <a href="#">@p.getProposer().getName()</a>, in @p.getTimestamp("d MMMMM")&nbsp;
                             <a class="label label-default" href="#">@p.getTag()</a>

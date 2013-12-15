@@ -3,19 +3,22 @@
 # ~~~~
 
 # Main routes
-GET     /                           controllers.Application.index()
+GET     /                               controllers.Application.index()
 
 # Proposals
-GET     /proposals                  controllers.Application.proposalList()
-GET     /proposals/:id              controllers.Application.proposalDetail(id: Long)
+GET     /proposals                      controllers.Proposals.proposalList()
+POST    /proposals/create               controllers.Proposals.createProposal()
+GET     /proposals/$id<[0-9]+>          controllers.Proposals.proposalDetail(id: Long)
+DELETE  /proposals/$id<[0-9]+>/delete   controllers.Proposals.deleteProposal(id: Long)
+PUT     /proposals/$id<[0-9]+>/edit     controllers.Proposals.editProblem(id: Long)
 
 # User account
-GET     /user                       controllers.Application.userAccount()
+GET     /user                           controllers.Application.userAccount()
 
 # Authentication
-GET     /login                      controllers.Application.login()
-POST    /login                      controllers.Application.authenticate()
-GET     /logout                     controllers.Application.logout()
+GET     /login                          controllers.Application.login()
+POST    /login                          controllers.Application.authenticate()
+GET     /logout                         controllers.Application.logout()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*filepath               controllers.Assets.at(path="/public", filepath)

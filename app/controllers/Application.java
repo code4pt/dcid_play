@@ -1,10 +1,10 @@
 package controllers;
 
-import play.data.Form;
 import static play.data.Form.*;
+import play.data.Form;
+import models.*;
 import play.mvc.*;
 import views.html.*;
-import models.*;
 
 /**
  * Main controller.
@@ -24,57 +24,16 @@ public class Application extends Controller {
             }
             return null;
         }
-    }
+    }    
     
-    /* ============== *
-     * Helper methods *
-     * ============== */
-    
-    /**
-     * @return the User logged in, otherwise null.
-     */
-    public static User getLoggedInUser() {
-    	String loggedInUsername = request().username();
-    	User loggedInUser = null;
-    	if(loggedInUsername != null) {
-    		loggedInUser  = User.find.byId(request().username());
-    	}
-    	return loggedInUser;
-    }
-    
-    
-    /* ================ *
-     * Proposal related *
-     * ================ */
-    
-    /**
-     * View that lists existing Proposals. 
-     */
-    @Security.Authenticated(Secured.class)
-    public static Result proposalList() {
-        return ok(proposalList.render(
-    		getLoggedInUser(),
-    		Proposal.find.all()
-		));
-    }
-    
-    @Security.Authenticated(Secured.class)
-    public static Result proposalDetail(Long proposalId) {
-        return ok(proposalDetail.render(
-    		getLoggedInUser(),
-    		Proposal.find.byId(proposalId)
-		));
-    }
-    
-    
-    /* ============ *
-     * User related *
-     * ============ */
+    /* ==================== *
+     * User related methods *
+     * ==================== */
     
     @Security.Authenticated(Secured.class)
     public static Result userAccount() {
-        return ok(userAccount.render(
-    		getLoggedInUser()
+        return ok(
+        		userAccount.render(Secured.getLoggedInUser()
 		));
     }
     
@@ -87,16 +46,18 @@ public class Application extends Controller {
      * Home page
      */
     public static Result index() {
-        return ok(index.render());
+        return ok(
+        		index.render()
+		);
     }
     
     /**
      * Log in view.
      */
     public static Result login() {
-		return ok(login.render(
-			form(Login.class)
-		));
+		return ok(
+				login.render(form(Login.class))
+		);
     }
     
     /**
@@ -107,7 +68,7 @@ public class Application extends Controller {
         session().clear();
         flash("msgLogin", "Success, you've been logged out.");
         return redirect(
-            routes.Application.login()
+        		routes.Application.login()
         );
     }
     
@@ -122,7 +83,7 @@ public class Application extends Controller {
             session().clear();
             session("email", loginForm.get().ffEmail);
             return redirect(
-                routes.Application.proposalList()
+            		routes.Proposals.proposalList()
             );
         }
     }

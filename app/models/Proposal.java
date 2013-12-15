@@ -1,9 +1,7 @@
 package models;
 
 import java.util.*;
-
 import javax.persistence.*;
-
 import play.db.ebean.*;
 
 /**
@@ -247,7 +245,7 @@ public class Proposal extends Model {
 	 * @param userId The identifier of a User
 	 * @return true if that User is the author of the considered proposal; false otherwise.
 	 */
-	public boolean isProposedBy(Long proposalId, String userId) {
+	public static boolean isProposedBy(Long proposalId, String userId) {
 		String proposersName = find.byId(proposalId).getProposer().getName();
 		return proposersName.compareTo(userId) == 0 ? true : false;
 	}
@@ -263,6 +261,11 @@ public class Proposal extends Model {
 		proposalToUpdate.setProblem(newProblem);
 		proposalToUpdate.update();
 		return proposalToUpdate.getProblem();
+	}
+
+	public static void delete(Long proposalId, String string) {
+		Proposal proposalToUpdate = find.byId(proposalId);
+		proposalToUpdate.delete();
 	}
 
 }
