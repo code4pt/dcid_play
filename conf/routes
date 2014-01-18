@@ -22,3 +22,6 @@ GET     /logout                         controllers.Application.logout()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*filepath               controllers.Assets.at(path="/public", filepath)
+
+# Routing
+GET     /assets/js/routes               controllers.Application.javascriptRoutes()

@@ -1,6 +1,7 @@
 package controllers;
 
 import static play.data.Form.*;
+import play.Routes;
 import play.data.Form;
 import models.*;
 import play.mvc.*;
@@ -25,6 +26,7 @@ public class Application extends Controller {
             return null;
         }
     }    
+    
     
     /* ==================== *
      * User related methods *
@@ -86,6 +88,22 @@ public class Application extends Controller {
             		routes.Proposals.proposalList()
             );
         }
+    }
+    
+    
+    /* =============== *
+     * Routing related *
+     * =============== */
+    
+    public static Result javascriptRoutes() {
+        response().setContentType("text/javascript");
+        return ok(
+            Routes.javascriptRouter("jsRoutes",
+                controllers.routes.javascript.Proposals.createProposal(),
+                controllers.routes.javascript.Proposals.deleteProposal(),
+                controllers.routes.javascript.Proposals.editProblem()
+            )
+        );
     }
     
 }
